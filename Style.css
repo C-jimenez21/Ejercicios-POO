@@ -1,0 +1,20 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.container{
+    display: grid;
+    grid-template-rows:4;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;    
+    margin-top: 50px
+}
