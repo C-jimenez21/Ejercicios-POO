@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style.css">
+    <script src="./Main.js" defer></script>
     <title>Ejemplo 01</title>
 </head>
 <body>
@@ -30,23 +31,25 @@
             </div>
             <div class="form-group">
                 <label for="nombre">¿Es estudiante?</label>
-                <select class="form-text" name="estudiante" id="Estudiante">
-                    <option value="0" >No</option>
+                <select class="form-text" name="estudiante" id="tipoPersona">
+                    <option value="0" selected>No</option>
                     <option value="1">Si</option>
                 </select>
             </div>
-            <div class="form-group" style="Display:none">
+            <div class="form-group" id="divCarrera" style="Display:none">
                 <label for="nombre">Carrera: </label>
                 <input type="text" class="form-text" id="Carrera">
             </div>
         </div>
         <div class="Botones">
-            <button id="accion-1">Saludar</button>
-            <button id="accion-2">Carrera</button>
+            <button id="accion-1" data-tipo="persona">Saludar</button>
+            <button id="accion-2" style="Display:none">Carrera</button>
             <button id="accion-3">Es mayor de edad</button>
         </div>
         <div class="respuesta">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <h1>Respuestas</h1>
+            <div class="rta"></div>
+            
         </div>
     </div>
 </body>
