@@ -1,8 +1,7 @@
 //Selectores
 const nombre = document.getElementById("Nombre")
 const edad = document.getElementById("Edad")
-const sexo = document.getElementById("Sexo")
-const carrera = document.getElementById("Carrera")
+const raza = document.getElementById("Carrera")
 
 const tipoPersona = document.getElementById("tipoPersona")
 const divCarrera = document.querySelector("#divCarrera")
@@ -10,16 +9,13 @@ const rta = document.querySelector(".rta")
 
 const btnSaludar = document.getElementById("accion-1")
 const btnCarrera = document.getElementById("accion-2")
-const btnMayorEdad = document.getElementById("accion-3")
 
 //Creacion de las clases
-class Persona {
+class Animal {
     nombre
-    sexo
     #edad
-    constructor({nombre = "NN", edad = "--", sexo = "helicoptero"}){
+    constructor({nombre = "NN", edad = "--"}){
         this.nombre = nombre
-        this.sexo = sexo
         this.#edad = edad
     }
     get getEdad(){
@@ -28,34 +24,26 @@ class Persona {
     set setEdad(dato){
         this.#edad = dato
     }
-    saludar(){
-        return `Hola ${this.nombre} que tengas buen dia, recuerda que tienes ${this.#edad}!`
+    hacerSonido(){
+        return `${this.nombre} esta haciendo ruido!`
     }
-    static esMayorDeEdad(edad){
-        if (edad>= 18)
-            //return `Es MAYOR de edad tiene ${edad}`
-            return true
-        else
-            //return `Es MENOR de edad tiene ${edad}`
-            return false
-        }
 }
 
 
-class Estudiante extends Persona{
-    carrera
-    constructor({carrera = "Web Developer"}){
+class Perro extends Animal{
+    raza
+    constructor({raza = "Golden Retriever"}){
         super({})
-        this.carrera = carrera
+        this.raza = raza
     }
-    estudiar(){
-        return `Estoy estudiando ${this.carrera}`
+    moverCola(){
+        return `El perro ${this.nombre} de raza ${this.raza} esta moviendo su cola!`
     }
 }
 
   
-let persona1 = new Persona({})
-let estudiante1 = new Estudiante({})
+let animal1 = new Animal({})
+let perro1 = new Perro({})
 
 
 document.getElementById("tipoPersona").addEventListener("change", ()=>{
@@ -63,14 +51,13 @@ document.getElementById("tipoPersona").addEventListener("change", ()=>{
         btnSaludar.dataset.tipo = "persona"
 
         btnCarrera.style.display = "none"
-        btnMayorEdad.style.display = "block"
 
         divCarrera.style.display = "none"
+
     }else if(tipoPersona.value === "1"){
         btnSaludar.dataset.tipo = "estudiante"
         
         btnCarrera.style.display = "block"
-        btnMayorEdad.style.display = "none"
         
         divCarrera.style.display = "block"
 
@@ -79,34 +66,24 @@ document.getElementById("tipoPersona").addEventListener("change", ()=>{
 
 btnSaludar.addEventListener("click", (e)=>{
     if(e.target.dataset.tipo === "persona"){
-        persona1.nombre = nombre.value
-        persona1.setEdad = edad.value
-        persona1.sexo = sexo.value
-        rta.innerHTML= persona1.saludar()
-        //console.log(persona1.saludar())
+        animal1.nombre = nombre.value
+        animal1.setEdad = edad.value
+        rta.innerHTML= animal1.hacerSonido()
+        //console.log(animal1.hacerSonido())
     }else{
-        estudiante1.nombre = nombre.value
-        estudiante1.setEdad = edad.value
-        estudiante1.sexo = sexo.value
+        perro1.nombre = nombre.value
+        perro1.setEdad = edad.value
 
-        rta.innerHTML= estudiante1.saludar()
-        //console.log(estudiante1.saludar())
+        rta.innerHTML= perro1.hacerSonido()
+        //console.log(perro1.hacerSonido())
     }
 })
 
 btnCarrera.addEventListener("click", () =>{
-    estudiante1.nombre = nombre.value
-    estudiante1.setEdad = edad.value
-    estudiante1.sexo = sexo.value
-    estudiante1.carrera = carrera.value
-    rta.innerHTML= estudiante1.estudiar()
+    perro1.nombre = nombre.value
+    perro1.setEdad = edad.value
+    perro1.raza = raza.value
+    rta.innerHTML= perro1.moverCola()
 })
 
-btnMayorEdad.addEventListener("click", ()=>{
-    persona1.nombre = nombre.value
-    persona1.setEdad = edad.value
-    persona1.sexo = sexo.value
 
-    rta.innerHTML = Persona.esMayorDeEdad(persona1.getEdad)
-   // console.log(Persona.esMayorDeEdad(persona1.getEdad))
-})
