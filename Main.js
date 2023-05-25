@@ -54,14 +54,6 @@ class Estudiante extends Persona{
 }
 
   
-
-
-
-
-
-
-
-
 let persona1 = new Persona({})
 let estudiante1 = new Estudiante({})
 
@@ -91,14 +83,14 @@ btnSaludar.addEventListener("click", (e)=>{
         persona1.setEdad = edad.value
         persona1.sexo = sexo.value
         rta.innerHTML= persona1.saludar()
-        console.log(persona1.saludar())
+        //console.log(persona1.saludar())
     }else{
         estudiante1.nombre = nombre.value
         estudiante1.setEdad = edad.value
         estudiante1.sexo = sexo.value
 
         rta.innerHTML= estudiante1.saludar()
-        console.log(estudiante1.saludar())
+        //console.log(estudiante1.saludar())
     }
 })
 
@@ -116,5 +108,5 @@ btnMayorEdad.addEventListener("click", ()=>{
     persona1.sexo = sexo.value
 
     rta.innerHTML = Persona.esMayorDeEdad(persona1.getEdad)
-    console.log(Persona.esMayorDeEdad(persona1.getEdad))
+   // console.log(Persona.esMayorDeEdad(persona1.getEdad))
 })
