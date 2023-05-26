@@ -6,7 +6,7 @@
 }
 
 button {
-    background-color: green;
+    background-color:deepskyblue;
     border: 1px solid;
     border-radius: 100vh;
     padding: 10px;
@@ -21,7 +21,7 @@ button:hover{
     
 }
 .container{
-    background-color: rgba(127, 0, 139, 0.733);
+    background-color:rgba(240, 128, 128, 0.685);
     padding: 50px;
     display: grid;
     grid-template-rows:4fr;
@@ -65,8 +65,4 @@ button:hover{
     font-weight: 500;
     margin-top: 20px;
 
-}
-img{
-    border-radius: 100vh;
-    width: 250px;
 }
