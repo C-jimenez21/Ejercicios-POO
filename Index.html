@@ -11,38 +11,38 @@
 <body>
     <div class="container">
         <div class="title">
-            <h1>Datos vehiculo</h1>
+            <h1>Datos Empleado</h1>
         </div>
         <div class="formulario">
             <div class="form-group">
-                <label for="nombre">Marca: </label>
-                <input type="text" class="form-text" id="Marca">
+                <label for="nombre">Nombre: </label>
+                <input type="text" class="form-text" id="nombre">
             </div>
             <div class="form-group">
-                <label for="nombre">Modelo:</label>
-                <input type="text" class="form-text" id="Modelo" >
+                <label for="nombre">Edad:</label>
+                <input type="number" class="form-text" id="edad" >
             </div>
             <div class="form-group">
-                <label for="nombre" >Velocidad: </label>
-                <input type="number" class="form-text" id="Velocidad">
+                <label for="nombre" >sueldo: </label>
+                <input type="number" class="form-text" id="sueldo">
             </div>
             <div class="form-group">
-                <label for="nombre">Tipo de carro:</label>
+                <label for="nombre">Tipo de empleado:</label>
                 <select class="form-text" name="estudiante" id="tipoPersona">
-                    <option value="0" selected>Default</option>
-                    <option value="1">Coche</option>
+                    <option value="0" selected>Empleado default</option>
+                    <option value="1">Gerente</option>
                 </select>
             </div>
            
             <div class="form-group" id="divCombustible" style="display: none">
-                <label for="nombre">Combustible: </label>
+                <label for="nombre">Departamento: </label>
                 <input type="number" class="form-text" id="Combustible" >
             </div>
         </div>
         <div class="Botones">
-            <button id="accion-3" data-tipo="vehiculo">Ingresar datos</button>
-            <button id="accion-1" data-tipo="vehiculo">Acelerar</button>
-            <button id="accion-2" data-tipo="vehiculo">Convertir MpH</button>
+            <button id="accion-3" data-tipo="vehiculo">Actualizar datos</button>
+            <button id="accion-1" data-tipo="vehiculo">Calcular Salario</button>
+            <button id="accion-2" data-tipo="vehiculo">Generar ID</button>
         </div>
         <div class="respuesta">
             <h1>Valores</h1>
