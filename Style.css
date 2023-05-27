@@ -21,7 +21,7 @@ button:hover{
     
 }
 .container{
-    background-color:rgba(240, 128, 128, 0.685);
+    background-color:rgba(165, 51, 146, 0.685);
     padding: 50px;
     display: grid;
     grid-template-rows:4fr;
@@ -54,8 +54,12 @@ button:hover{
 .Botones{
     width: 500px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     column-gap: 20px;
+}
+#accion-3{
+    background-color: green;
+    color: white;
 }
 .rta{
     padding: 20px;
