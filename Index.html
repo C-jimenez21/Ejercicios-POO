@@ -11,44 +11,41 @@
 <body>
     <div class="container">
         <div class="title">
-            <h1>Calculador de areas</h1>
+            <h1>Datos vehiculo</h1>
         </div>
         <div class="formulario">
             <div class="form-group">
-                <label for="nombre">Color: </label>
-                <input type="color" class="form-text" id="Color">
+                <label for="nombre">Marca: </label>
+                <input type="text" class="form-text" id="Marca">
             </div>
             <div class="form-group">
-                <label for="nombre">Area: </label>
-                <input type="number" class="form-text" id="Area" placeholder="m^2">
+                <label for="nombre">Modelo:</label>
+                <input type="text" class="form-text" id="Modelo" >
             </div>
             <div class="form-group">
-                <label for="nombre">Tipo de figura:</label>
+                <label for="nombre" >Velocidad: </label>
+                <input type="number" class="form-text" id="Velocidad">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Tipo de carro:</label>
                 <select class="form-text" name="estudiante" id="tipoPersona">
-                    <option value="0" selected>Desde clase Figura</option>
-                    <option value="1">Circulo</option>
-                    <option value="2">Rectangulo</option>
-                    
+                    <option value="0" selected>Default</option>
+                    <option value="1">Coche</option>
                 </select>
             </div>
-            <div class="form-group" id="divRadio" style="display: none">
-                <label for="nombre" >Radio: </label>
-                <input type="text" class="form-text" id="Radio" placeholder="m">
-            </div>
-            <div class="form-group" id="divBase" style="display: none">
-                <label for="nombre">Base: </label>
-                <input type="number" class="form-text" id="Base" placeholder="m">
-            </div>
-            <div class="form-group" id="divAltura" style="display: none">
-                <label for="nombre">altura: </label>
-                <input type="number" class="form-text" id="Altura" placeholder="m">
+           
+            <div class="form-group" id="divCombustible" style="display: none">
+                <label for="nombre">Combustible: </label>
+                <input type="number" class="form-text" id="Combustible" >
             </div>
         </div>
         <div class="Botones">
-            <button id="accion-1">Calcular Area</button>
+            <button id="accion-3" data-tipo="vehiculo">Ingresar datos</button>
+            <button id="accion-1" data-tipo="vehiculo">Acelerar</button>
+            <button id="accion-2" data-tipo="vehiculo">Convertir MpH</button>
         </div>
         <div class="respuesta">
-            <h1>Respuestas</h1>
+            <h1>Valores</h1>
             <div class="rta"></div>
         </div>
     </div>
