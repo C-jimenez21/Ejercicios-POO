@@ -1,69 +1,68 @@
 //Selectores
-const tipoVehiculo = document.getElementById("tipoPersona")
+const tipoEmpleado = document.getElementById("tipoPersona")
 
-const marca = document.getElementById("Marca")
-const modelo = document.getElementById("Modelo")
-const velocidad = document.getElementById("Velocidad")
-const combustible = document.getElementById("Combustible")
+const nombre = document.getElementById("nombre")
+const edad = document.getElementById("edad")
+const sueldo = document.getElementById("sueldo")
+const departamento = document.getElementById("Combustible")
 
 const rta = document.querySelector(".rta")
 
-const divCombustible = document.querySelector("#divCombustible")
+const divDepartamento = document.querySelector("#divCombustible")
 
 const btnCalcular = document.getElementById("accion-1")
-const btnConvertir = document.getElementById("accion-2")
+const btnGenerar = document.getElementById("accion-2")
 const btnDatos = document.getElementById("accion-3")
 
 //Creacion de las clases
-class Vehiculo {
-    marca
-    modelo
-    velocidad
-    constructor({marca = "Avion", modelo = "2003", velocidad = 300}){
-        this.marca = marca
-        this.modelo = modelo
-        this.velocidad = velocidad
+class Empleado {
+    nombre
+    edad
+    sueldo
+    constructor({nombre = "Gustavo", edad = "21", sueldo = 500_000}){
+        this.nombre = nombre
+        this.edad = edad
+        this.sueldo = sueldo
     }
-    acelerar(){
-        this.velocidad += 10
-        return `La velocidad actual del vehiculo de ${this.marca} y cuyo modelo es ${this.modelo} es: ${this.velocidad} KmH` 
+    calcularSalarioAnual(){
+        return `el sueldo anual del empleado ${this.nombre} y cuyo edad es ${this.edad} es: $ ${this.sueldo*12} Pesos` 
     }
-    static convertirKmHEnMph(km){
-        return `${km}[KmH] son equivalentes a ${km/1.60934} [MpH]`
+    static generarIdEmpleado(name){
+        console.log(Math.random*1000)
+        return `El codigo generado del empleado ${name} es: ${Math.floor(Math.random()*1000)}`
     }
 }
 
-class Coche extends Vehiculo{
-    combustible
-    constructor({combustible = "0"}){
+class Gerente extends Empleado{
+    departamento
+    constructor({departamento = "RH"}){
         super({})
-        this.combustible = combustible
+        this.departamento = departamento
     }
-    acelerar(){
-        this.velocidad += 20
-        return `La velocidad actual del vehiculo de ${this.marca} y cuyo modelo es ${this.modelo} es: ${this.velocidad} KmH debido a su combustible llamado ${this.combustible}` 
+    calcularSalarioAnual(){
+        return `el sueldo anual del empleado ${this.nombre} y cuyo edad es ${this.edad} es: $ ${(this.sueldo * (1.1))*12} Pesos` 
+
     }
 }
 
-let vehiculo1 = new Vehiculo({})
-let coche1 = new Coche({})
+let empleado1 = new Empleado({})
+let gerente1 = new Gerente({})
 
 
-tipoVehiculo.addEventListener("change", ()=>{
-    if(tipoVehiculo.value === "1"){
-        console.log("entro coche");
-        divCombustible.style.display = "contents"
+tipoEmpleado.addEventListener("change", ()=>{
+    if(tipoEmpleado.value === "1"){
+        divDepartamento.style.display = "contents"
         btnCalcular.dataset.tipo = "coche"
-        btnConvertir.dataset.tipo = "coche"
+        btnGenerar.dataset.tipo = "coche"
         btnDatos.dataset.tipo = "coche"
         
         
     }else{
         console.log("entro vehiculo");
         btnCalcular.dataset.tipo = "vehiculo"
-        btnConvertir.dataset.tipo = "vehiculo"
+        btnGenerar.dataset.tipo = "vehiculo"
         btnDatos.dataset.tipo = "vehiculo"
-        divCombustible.style.display = "none"   
+        divDepartamento.style.display = "none"
         
         
     }
@@ -71,34 +70,34 @@ tipoVehiculo.addEventListener("change", ()=>{
 
 btnCalcular.addEventListener("click", (e)=>{
     if(e.target.dataset.tipo === "vehiculo"){  
-        rta.innerHTML= vehiculo1.acelerar()
+        rta.innerHTML= empleado1.calcularSalarioAnual()
     }else if(e.target.dataset.tipo === "coche"){
-        rta.innerHTML= coche1.acelerar()
+        rta.innerHTML= gerente1.calcularSalarioAnual()
     }
 })
 
-btnConvertir.addEventListener("click", (e)=>{
+btnGenerar.addEventListener("click", (e)=>{
     if(e.target.dataset.tipo === "vehiculo"){
-        rta.innerHTML= Vehiculo.convertirKmHEnMph(vehiculo1.velocidad)
-        //console.log(vehiculo1.hacerSonido())
+        rta.innerHTML= Empleado.generarIdEmpleado(empleado1.nombre)
+        //console.log(empleado1.hacerSonido())
     }else if(e.target.dataset.tipo === "coche"){
-        rta.innerHTML= Coche.convertirKmHEnMph(coche1.velocidad)
-        //console.log(coche1.hacerSonido())
+        rta.innerHTML= Gerente.generarIdEmpleado(gerente1.nombre)
+        //console.log(gerente1.hacerSonido())
     }
 })
 
 
 btnDatos.addEventListener("click", (e)=>{
     if(e.target.dataset.tipo === "vehiculo"){
-        vehiculo1.modelo = modelo.value
-        vehiculo1.marca = marca.value
-        vehiculo1.velocidad = Number(velocidad.value )
+        empleado1.edad = edad.value
+        empleado1.nombre = nombre.value
+        empleado1.sueldo = Number(sueldo.value )
 
     }else if(e.target.dataset.tipo === "coche"){
-        coche1.modelo = modelo.value
-        coche1.marca = marca.value
-        coche1.velocidad = Number(velocidad.value)
-        coche1.combustible = combustible.value            
+        gerente1.edad = edad.value
+        gerente1.nombre = nombre.value
+        gerente1.sueldo = Number(sueldo.value)
+        gerente1.departamento = departamento.value            
 
     }
 })
